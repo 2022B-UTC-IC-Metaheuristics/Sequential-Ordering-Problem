@@ -41,7 +41,7 @@ Una de las aplicaciones de este problema cuando encontramos alguna situacion com
 ### 2.3 Ejemplo ### 
 *GRAFO DE EJEMPLO*
 
-![Grafo de ejemplo.](https://graphonline.ru/tmp/saved/hh/hhFcwtLeeqzqzogz.png)  
+![Grafo de ejemplo.](https://graphonline.ru/tmp/saved/hh/hhFcwtLeeqzqzogz.png) 
 
 *SOLUCION DE GRAFO DE EJEMPLO*
 
