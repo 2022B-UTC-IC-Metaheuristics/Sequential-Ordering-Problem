@@ -2,7 +2,15 @@
 
 ## 1.-Introducción ##
 
-El presente documento plantea una propuesta de solucion para la codificacion del problema de ordenamiento secuencial, en el cual se utiliza la metodología de recocido simulado.
+El ordenamiento secuencial es un problema fundamental en diversos ámbitos, desde la informática hasta la logística y la ingeniería, donde la eficiencia en la organización de datos es esencial para optimizar procesos y mejorar el rendimiento de sistemas y aplicaciones. Este problema consiste en la disposición ordenada de una secuencia de elementos de acuerdo con algún criterio específico, como el valor numérico, alfabético o alguna otra medida relevante.
+
+En la era actual, caracterizada por el crecimiento exponencial de la cantidad de datos generados y procesados, la necesidad de algoritmos eficientes de ordenamiento se ha vuelto más acuciante que nunca. A medida que enfrentamos conjuntos de datos cada vez más grandes y complejos, la búsqueda de métodos de ordenamiento óptimos se convierte en un desafío crucial para garantizar el rendimiento y la escalabilidad de los sistemas informáticos y logísticos.
+
+En este contexto, el presente documento propone una solución innovadora para abordar el problema de ordenamiento secuencial mediante la aplicación de la metodología de recocido simulado. El recocido simulado es una técnica inspirada en los procesos de enfriamiento metalúrgico, que busca encontrar soluciones óptimas explorando el espacio de búsqueda de manera probabilística y adaptativa.
+
+A través de la aplicación de recocido simulado, se pretende desarrollar un algoritmo eficiente y flexible capaz de manejar grandes conjuntos de datos y adaptarse a diferentes criterios de ordenamiento. Esta propuesta busca no solo ofrecer una solución efectiva al problema de ordenamiento secuencial, sino también explorar nuevas perspectivas en la aplicación de técnicas de optimización en el ámbito de la ciencia de la computación y la ingeniería.
+
+En las siguientes secciones, se presentará en detalle la formulación del problema, la descripción del algoritmo de recocido simulado propuesto y los resultados de su aplicación en diferentes escenarios de prueba. Se espera que este trabajo contribuya al avance en el campo del ordenamiento secuencial y sirva como base para futuras investigaciones en el desarrollo de algoritmos de optimización.
 
 
 ## 2.-Problema ##
