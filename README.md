@@ -1,4 +1,4 @@
-# Sequential-Ordering-Problem
+# Sequential-Ordering-Problem.
 
 ## 1.-Introducción ##
 
