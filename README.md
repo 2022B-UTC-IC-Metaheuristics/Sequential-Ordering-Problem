@@ -28,7 +28,7 @@ Una de las aplicaciones de este problema cuando encontramos alguna situacion com
 
 **Optimizaciones en fábricas** por ejemplo, en la manufactura del automotor, en el sistema de pintado de los autos, para minimizar costos de cambio de color de la pintura.
 
-# Imagenes caidas
+
 
 ### 2.3 Ejemplo ### 
 **GRAFO DE EJEMPLO**
