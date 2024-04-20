@@ -44,9 +44,6 @@ Una de las aplicaciones de este problema cuando encontramos alguna situacion com
 ![Grafo de ejemplo.](https://github.com/2022B-UTC-IC-Metaheuristics/Sequential-Ordering-Problem/blob/main/Img/Grafo.jpg?raw=true). 
 
 *SOLUCION DE GRAFO DE EJEMPLO*
-
-![Solucion de Grafo de ejemplo.]
-
 *Vector Solucion*
 
 [0, 2, 3, 4, 5, 6, 1, 7]
