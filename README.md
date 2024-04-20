@@ -41,11 +41,11 @@ Una de las aplicaciones de este problema cuando encontramos alguna situacion com
 ### 2.3 Ejemplo ### 
 *GRAFO DE EJEMPLO*
 
-![Grafo de ejemplo.](https://graphonline.ru/tmp/saved/hh/hhFcwtLeeqzqzogz.png) 
+![Grafo de ejemplo.]([https://graphonline.ru/tmp/saved/hh/hhFcwtLeeqzqzogz.png](https://github.com/2022B-UTC-IC-Metaheuristics/Sequential-Ordering-Problem/blob/main/Img/Grafo.jpg?raw=true)) 
 
 *SOLUCION DE GRAFO DE EJEMPLO*
 
-![Solucion de Grafo de ejemplo.](https://graphonline.ru/tmp/saved/gY/gYHqUXAsCVVxnMec.png)
+![Solucion de Grafo de ejemplo.]()
 
 *Vector Solucion*
 
