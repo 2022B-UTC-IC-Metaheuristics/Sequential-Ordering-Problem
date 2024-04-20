@@ -41,10 +41,11 @@ Una de las aplicaciones de este problema cuando encontramos alguna situacion com
 ### 2.3 Ejemplo ### 
 *GRAFO DE EJEMPLO*
 
-![Grafo de ejemplo.](https://github.com/2022B-UTC-IC-Metaheuristics/Sequential-Ordering-Problem/blob/main/Img/Grafo.jpg?raw=true).
+![Grafo de ejemplo.](https://github.com/2022B-UTC-IC-Metaheuristics/Sequential-Ordering-Problem/blob/main/Img/Grafo.jpg?raw=true). 
+
 *SOLUCION DE GRAFO DE EJEMPLO*
 
-![Solucion de Grafo de ejemplo.]()
+![Solucion de Grafo de ejemplo.]
 
 *Vector Solucion*
 
