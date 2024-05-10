@@ -204,9 +204,9 @@ El formato del archivo es csv en el que se encuentran almacenados la matriz de c
 Dentro de este repositorio se encuentran 2 archivos, el primer archivo es un ejemplo con 100 nodos el segundo con 2500 nodos y con 15 000 nodos, este último está en la siguiente [liga](https://drive.google.com/file/d/1qvtI9ea8AAPUGQeJUUcDSoUcB3g6PM-f/view?usp=sharing).
 
 Python
-#funcion para obtener el costo
 
-def _cost(SOLUCION:[], COSTOS:[], REGLAS_PRESEDENCIA)->float:
+    #funcion para obtener el costo 
+    def _cost(SOLUCION:[], COSTOS:[], REGLAS_PRESEDENCIA)->float:
 
         costo_solucion = 0 
         
@@ -231,10 +231,10 @@ def _cost(SOLUCION:[], COSTOS:[], REGLAS_PRESEDENCIA)->float:
 
 
 Python
-def verificacion_reglas(REGLAS_PRESEDENCIA:[],SOLUCION:[])->bool:
-
-    for NODO in REGLAS_PRESEDENCIA:
-    # Recorrido de solucion
+       
+    def verificacion_reglas(REGLAS_PRESEDENCIA:[],SOLUCION:[])->bool:
+     for NODO in REGLAS_PRESEDENCIA:
+     # Recorrido de solucion
 
         for indice_estado_siguiente in range(len(SOLUCION)):
                         
@@ -250,119 +250,115 @@ def verificacion_reglas(REGLAS_PRESEDENCIA:[],SOLUCION:[])->bool:
 
 
 Python
-def solucionInicial(numNodos,reglas):
-    solucionTemp = []
-    solucion = []
-    #generacion de numeros aleatorios con su indice para obtener la primera solucion
-    for i in range(numNodos-2):
-        solucionTemp.append([i+1,random.random()])
-    #Se reordenan para poder decidir en que orden visitar los nodos
-    solucionTemp.sort(key=itemgetter(1))
-    # El primero nodo debe ser siempre el cero
-    solucion.append(0)
-    #agregar los demas nodos
-    for i in list(solucionTemp):
-        solucion.append(i[0])
-    #El ultimo nodo debe ser numNodos-1
-    solucion.append(numNodos-1)
-    solucion = corregirPrecedencia(solucion[:],reglas,numNodos)
-    return solucion
-     
 
+    def solucionInicial(numNodos,reglas):
+        solucionTemp = []
+        solucion = []
+        #generacion de numeros aleatorios con su indice para obtener la primera solucion
+        for i in range(numNodos-2):
+            solucionTemp.append([i+1,random.random()])
+        #Se reordenan para poder decidir en que orden visitar los nodos
+        solucionTemp.sort(key=itemgetter(1))
+        # El primero nodo debe ser siempre el cero
+        solucion.append(0)
+        #agregar los demas nodos
+        for i in list(solucionTemp):
+            solucion.append(i[0])
+        #El ultimo nodo debe ser numNodos-1
+        solucion.append(numNodos-1)
+        solucion = corregirPrecedencia(solucion[:],reglas,numNodos)
+        return solucion
+     
+Python
+    
+    def _sol_vecina(SOLUCION: []) -> []:                  
+        rango_numeros = range(1, 100 - 2)  
+     
+        SOLUCION_AUX = SOLUCION[:]    
+        indx1 = random.choice(rango_numeros)  
+        indx2 = random.choice(rango_numeros)  
+        SOLUCION_AUX[indx1], SOLUCION_AUX[indx2] = SOLUCION[indx2], SOLUCION[indx1]  
+      
+        return SOLUCION_AUX
 
 Python
-def _sol_vecina(SOLUCION: []) -> []: 
-                     
-    rango_numeros = range(1, 100 - 2)  
-     
-    SOLUCION_AUX = SOLUCION[:]    
-    indx1 = random.choice(rango_numeros)  
-    indx2 = random.choice(rango_numeros)  
-    SOLUCION_AUX[indx1], SOLUCION_AUX[indx2] = SOLUCION[indx2], SOLUCION[indx1]  
-  
+    
+    def forzar_cumprimiento_reglas(REGLAS_PRESEDENCIA:[], SOLUCION:[], COSTOS:[])->[]:
+        solucion_inicial  = verificacion_reglas(REGLAS_PRESEDENCIA , SOLUCION)
 
-    return SOLUCION_AUX
+        while(solucion_inicial):
+    
+            SOLUCION = _inicializacion(len(SOLUCION))
+            solucion_inicial = verificacion_reglas(REGLAS_PRESEDENCIA , SOLUCION)
+    
+        return SOLUCION
+
+    def _inicializacion(tamanio:int)->[]:
+     
+        solucion_inicial = random.sample(range(1, tamanio-1), tamanio-2)
+        solucion_inicial.insert(0,0)
+        solucion_inicial.insert(tamanio,tamanio-1)
+
+        return solucion_inicial
 
 Python
-def forzar_cumprimiento_reglas(REGLAS_PRESEDENCIA:[], SOLUCION:[], COSTOS:[])->[]:
-
-    solucion_inicial  = verificacion_reglas(REGLAS_PRESEDENCIA , SOLUCION)
-
-    while(solucion_inicial):
     
-        SOLUCION = _inicializacion(len(SOLUCION))
-        solucion_inicial = verificacion_reglas(REGLAS_PRESEDENCIA , SOLUCION)
+    def readFile(size, name):
+        m = np.zeros((0), dtype=int)
+        m_prec = np.zeros((0), dtype=int)
     
-    return SOLUCION
-
-def _inicializacion(tamanio:int)->[]:
-     
-    solucion_inicial = random.sample(range(1, tamanio-1), tamanio-2)
-    solucion_inicial.insert(0,0)
-    solucion_inicial.insert(tamanio,tamanio-1)
-
-    return solucion_inicial
-
-Python
-def readFile(size, name):
-    m = np.zeros((0), dtype=int)
-    m_prec = np.zeros((0), dtype=int)
-    
-    with open(name, newline='') as File:  
-        reader = csv.reader(File, delimiter=',', quotechar=',',quoting=csv.QUOTE_MINIMAL)
-        i=0
-        for row in File:
+        with open(name, newline='') as File:  
+            reader = csv.reader(File, delimiter=',', quotechar=',',quoting=csv.QUOTE_MINIMAL)
+            i=0
+            for row in File:
             
-            row = row.rstrip()
-            separador = ","
-            row = row.split(",")
-            row = list(map(int, row))
-            m_np = np.array(row)
+                row = row.rstrip()
+                separador = ","
+                row = row.split(",")
+                row = list(map(int, row))
+                m_np = np.array(row)
             
-            if i < size :
-                m = np.append(m, m_np, axis=0)
-                #print(m_np)
-            else:
-                m_prec = np.append(m_prec, m_np, axis=0)
-            i+=1
+                if i < size :
+                    m = np.append(m, m_np, axis=0)
+                    #print(m_np)
+                else:
+                    m_prec = np.append(m_prec, m_np, axis=0)
+                i+=1
     
-    m = np.array(m).reshape(size,size)
-    m_prec = np.array(m_prec).reshape(int((len(m_prec)/2)),2)
-    return m, m_prec    
-
-
-Python
-nombre = './Instancias/txt/100.txt'
-numero_nodos = 100
-COSTOS, REGLAS_PRESEDENCIA = readFile(numero_nodos, nombre) 
-
-print(f'{m}')
-
-Python
-def SOP(COSTOS, REGLAS_PRESEDENCIA) -> []:  
-    SOLUCION = _inicializacion(100)
-    SOLUCION = forzar_cumprimiento_reglas(REGLAS_PRESEDENCIA, SOLUCION, COSTOS)  
-    SAnnealing = RecocidoSimulado(step=0.01,final_temperature=0.1, temperature= 500,alpha=0.95,equilibrium=10,domain=COSTOS)
-    resultado = SAnnealing.fit(objetive=_cost,first=_inicializacion,neighbor=_sol_vecina,COSTOS=COSTOS, REGLAS_PRESEDENCIA=REGLAS_PRESEDENCIA, SOLUCION=SOLUCION) 
-
-    plt.plot(range(len(SAnnealing.cost_)), [x[1] for x in SAnnealing.cost_ ])
-    plt.show()
-
+        m = np.array(m).reshape(size,size)
+        m_prec = np.array(m_prec).reshape(int((len(m_prec)/2)),2)
+        return m, m_prec    
 
 Python
 
-inicio = time.time()
+    nombre = './Instancias/txt/100.txt'
+    numero_nodos = 100
+    COSTOS, REGLAS_PRESEDENCIA = readFile(numero_nodos, nombre) 
 
-SOP(COSTOS, REGLAS_PRESEDENCIA)
+    print(f'{m}')
 
-fin = time.time()
-tiempo_ejecucion = fin - inicio
-print("Tiempo de ejecución:", tiempo_ejecucion)
+Python
+    
+    def SOP(COSTOS, REGLAS_PRESEDENCIA) -> []:  
+        SOLUCION = _inicializacion(100)
+        SOLUCION = forzar_cumprimiento_reglas(REGLAS_PRESEDENCIA, SOLUCION, COSTOS)  
+        SAnnealing = RecocidoSimulado(step=0.01,final_temperature=0.1, temperature= 500,alpha=0.95,equilibrium=10,domain=COSTOS)
+        resultado = SAnnealing.fit(objetive=_cost,first=_inicializacion,neighbor=_sol_vecina,COSTOS=COSTOS, REGLAS_PRESEDENCIA=REGLAS_PRESEDENCIA, SOLUCION=SOLUCION) 
 
+        plt.plot(range(len(SAnnealing.cost_)), [x[1] for x in SAnnealing.cost_ ])
+        plt.show()
 
+Python
+
+    inicio = time.time()
+
+    SOP(COSTOS, REGLAS_PRESEDENCIA)
+
+    fin = time.time()
+    tiempo_ejecucion = fin - inicio
+    print("Tiempo de ejecución:", tiempo_ejecucion)
 
 Los ejemplos de las instancias están en archivos con extensión .csv.
-
 
 Para la primera instancia con *100 nodos* nuestros resultados fueron:
 - Costo 747
